@@ -1,0 +1,46 @@
+<!-- <p>batch-rows works!</p> -->
+<table>
+    <tr>
+        <th class="border p-2">Batch</th>
+        <th class="border p-2">Carrier</th>
+        <th class="border p-2">YYYYMM</th>
+        <th class="border p-2">Type</th>
+        <th class="border p-2">Description</th>
+        <th class="border p-2">Task & State</th>
+        <th class="border p-2">Action</th>
+        <th class="border p-2">Changed By</th>
+        <th class="border p-2">First Mailer</th>
+        <th class="border p-2">Reason Desc</th>
+    </tr>
+    <tr>
+        <td class="BatchId border p-3">A</td>
+        <td class="Carrier border p-3">A</td>
+        <td class="ymd border p-3">A</td>
+        <td class="Types border p-3">A</td>
+        <td class="Description border p-3">A</td>
+        <td class="TasknState border p-3">A</td>
+        <td class="Action border p-3">
+            <fa-icon [icon]="faCheckCircle" class="checkButton p-1" (click)="modalToggle()"></fa-icon>
+            <fa-icon [icon]="faTimesCircle" class="p-1" ></fa-icon>
+            <fa-icon [icon]="faArrowCircleLeft" class="p-1" ></fa-icon>
+        </td>
+        <td class="ChangedBy border p-3">A</td>
+        <td class="FirstMailer border p-3">A</td>
+        <td class="ReasonDesc border p-3">A</td>
+
+        <!-- The Modal (checkBox) -->
+        <div id="myModal" class="modal" *ngIf="modalDisplay">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" (click)="modalToggle()">&times;</span>
+                <p>Some text in the Modal..</p>
+                <div class="buttonParent">
+                    <input id="noButton" class="m-1" type="button" value="No" (click)="modalToggle()"/>
+                    <input id="yesButton" class="m-1" type="button" value="Yes" (click)="modalToggle()"/>
+                </div>
+            </div>
+        
+        </div>
+    </tr>
+</table>
