@@ -1,8 +1,9 @@
-.batchState{
-    /* height: 200px; */
+.messageMonitor{
+    height: 200px;
+    border: 1px solid black;
 }
 
-.batchStateHeader{
+.messageHeader{
     background-color: #115154;
     color: white;
     height: 30px;
