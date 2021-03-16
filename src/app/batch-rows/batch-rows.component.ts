@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faArrowCircleLeft, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'node_modules/sweetalert';
+import { batchRowData } from '../models/batchRowData';
 
 @Component({
   selector: 'app-batch-rows',
@@ -9,11 +10,15 @@ import Swal from 'node_modules/sweetalert';
 })
 
 export class BatchRowsComponent implements OnInit {
+  // @ts-ignore
+  @Input() batchRows: batchRowData;
+
   faCheckCircle = faCheckCircle;
   faArrowCircleLeft = faArrowCircleLeft;
   faTimesCircle = faTimesCircle;
   modalDisplay: boolean = false;
   displayMessage: string = "Do you want to delete ?";
+
   static modal: HTMLElement | null = document.getElementById('myModal');
   static btn: HTMLElement | null = document.getElementById('myBtn');
   // @ts-ignore 

@@ -4,5 +4,49 @@
     <hr>
     <div class=""></div>
     <br>
-    <app-batch-rows ></app-batch-rows> 
+    <table class="m-1">
+        <tr>
+            <th class="BatchId border p-1">Batch</th>
+            <th class="Carrier border p-1">Carrier</th>
+            <th class="ymd border p-1">YYYYMM</th>
+            <th class="Types border p-1">Type</th>
+            <th class="Description border p-1">Description</th>
+            <th class="TasknState border p-1">Task & State</th>
+            <th class="Action border p-1">Action</th>
+            <th class="ChangedBy border p-1">Changed By</th>
+            <th class="FirstMailer border p-1">First Mailer</th>
+            <th class="ReasonDesc border p-1">Reason Desc</th>
+        </tr>
+        <tr *ngFor="let row of batchRows;">
+            <td class="BatchId border ">{{row.batch}}</td>
+            <td class="Carrier border ">{{row.carrier}}</td>
+            <td class="ymd border ">{{row.yymm}}</td>
+            <td class="Types border ">{{row.type}}</td>
+            <td class="Description border ">{{row.description}}</td>
+            <td class="TasknState border ">{{row.tasknState}}</td>
+            <td class="Action border ">
+                <fa-icon [icon]="faCheckCircle" class="checkButton p-1" (click)="modalToggle(); row.action='checkButton'"></fa-icon>
+                <fa-icon [icon]="faTimesCircle" class="p-1" (click)="row.action='cancelButton'"></fa-icon>
+                <fa-icon [icon]="faArrowCircleLeft" class="p-1" (click)="row.action='backButton'" ></fa-icon>
+            </td>
+            <td class="ChangedBy border ">{{row.changedBy}}</td>
+            <td class="FirstMailer border ">{{row.firstMailer}}</td>
+            <td class="ReasonDesc border ">{{row.reasonDesc}}</td>
+            <!-- <app-batch-rows [batchRows]="row"></app-batch-rows>  -->
+        </tr>
+    </table>
+    <!-- The Modal (checkBox) -->
+    <div id="myModal" class="modal" *ngIf="modalDisplay">
+    
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" (click)="modalToggle()">&times;</span>
+            <p>Some text in the Modal..</p>
+            <div class="buttonParent">
+                <input id="noButton" class="m-1" type="button" value="No" (click)="modalToggle()"/>
+                <input id="yesButton" class="m-1" type="button" value="Yes" (click)="modalToggle()"/>
+            </div>
+        </div>
+    
+    </div>     
 </div>
